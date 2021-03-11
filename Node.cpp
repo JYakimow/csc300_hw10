@@ -7,6 +7,11 @@ Node::Node(int payload)
     this->nextNode = NULL;
 }
 
+void Node::setPayload(int n)
+{
+    this->payload = n;
+}
+
 void Node::setNextNode(Node* n)
 {
     this->nextNode = n;

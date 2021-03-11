@@ -17,6 +17,7 @@ void displayIntArray(int ar[]);
 
 int main(int argc, char** argv)
 {
+    /*
     srandom(time(NULL));
     long val; 
     int ar[ARRAY_LENGTH];
@@ -27,10 +28,11 @@ int main(int argc, char** argv)
         val = (val % 1000)+1;
         ar[i] = val;
     }
+    */
 
     //displayIntArray(ar);
-    insertionSort(ar);
-    displayIntArray(ar);
+    //insertionSort(ar);
+    //displayIntArray(ar);
     //URL* u1 = new URL("https://api.hearthstonejson.com/v1/25770/enUS/cards.json");
     //cout << u1->getContents() << endl;
     //string jsonString = "[{\"fname\":\"val1\", \"lname\": \"val2\", \"sums\":[1,2,3]},{\"fname\":\"val3\", \"lname\":\"val4\"}]";
@@ -51,6 +53,20 @@ int main(int argc, char** argv)
     ll->addAtIndex(6, 2);
     ll->display();
     */
+
+    LinkedList* ll = new LinkedList();
+    ll->addEnd(4);
+    ll->addEnd(6);
+    ll->addEnd(8);
+    ll->addEnd(2);
+    ll->addFront(13);
+    ll->addFront(17);
+    ll->display();
+    cout << "test" << endl;
+    ll->NodeInsertionSort();
+    cout << "func broke" << endl;
+    //ll->display();
+
     return 0;
 }
 

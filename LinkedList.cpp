@@ -100,10 +100,11 @@ int LinkedList::removeAtIndex(int index)
     }
     
 }
+/*
 void LinkedList::NodeInsertionSort()
 {
     Node* theFollower = this->head;
-    Node* countNode = new Node(count);
+    Node* tempSwap = new Node();
     for(Node* currStart = this->head; currStart < countNode; currStart->getNextNode())
     {
         while(theFollower->getNextNode() < currStart)
@@ -112,10 +113,84 @@ void LinkedList::NodeInsertionSort()
         }
         while(theFollower > 0 && currStart < theFollower)
         {
-            theFollower->getNextNode(currStart->getNextNode());
-            currStart->getNextNode(theFollower);
+            theFollower->setNextNode(currStart->getNextNode());
+            currStart->setNextNode(theFollower);
+        }
+    }s
+}
+*/
+void LinkedList::NodeInsertionSort()
+{
+    //Node* theFollower = this->head;
+    Node* theFollower = new Node(NULL);
+    Node* currentNode = new Node(NULL);
+    Node* emptyNode = new Node(NULL);
+    Node* followFollow = new Node(NULL);
+    //currentNode = this->head;
+    Node* tempSwap = new Node(NULL);
+    //this->count;
+    int length = this->count;
+    int tempCnt = NULL;
+    cout << "count: ";
+    cout << length << endl;
+
+    for(int tempCount = 0; tempCount < length; tempCount++)
+    {   
+        
+        for(int i = 0; i < tempCount; i++)
+        {
+            if (tempCount == 1)
+            {
+                //currentNode->setPayload(this->head->getPayload());
+                //currentNode->setNextNode(this->head->getNextNode());
+                currentNode = this->head;
+                cout << "first part currentNode: ";
+                cout << currentNode->getPayload() << endl;
+                theFollower = emptyNode;
+                followFollow = emptyNode;
+            }
+            else
+            {   
+                if (currentNode->getNextNode() == NULL)
+                {
+                    //return;
+                }
+                else
+                {
+                    followFollow = theFollower;
+                    theFollower = currentNode;
+                    cout << "theFollower: ";
+                    cout << theFollower->getPayload() << endl;
+                    currentNode = currentNode->getNextNode();
+                    cout << "currentNode: ";
+                    cout << currentNode->getPayload() << endl;
+                }
+            }
+            cout << "" << endl;
+        }
+        cout << "loop broke" << endl;
+        
+        if (currentNode->getPayload() < theFollower->getPayload())
+        {
+            tempSwap = currentNode;
+            //currentNode = theFollower; 
+            currentNode->setNextNode(theFollower);
+            followFollow->setNextNode(theFollower->getNextNode());
+            theFollower->setNextNode(tempSwap->getNextNode());
+            //followFollow->setNextNode(currentNode);
+            //currentNode = theFollower;
+            //theFollower = tempSwap;
+            cout << followFollow->getPayload() <<endl;
+            cout << currentNode->getPayload() <<endl;
+            //cout << followFollow->getPayload() <<endl;
+            cout << theFollower->getPayload() <<endl;
+
+            //display();
+            //currentNode = theFollower;
+            //theFollower = tempSwap;
         }
     }
+    cout << "second loop broken" << endl;
 }
 void LinkedList::addFront(int value)
 {
