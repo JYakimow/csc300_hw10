@@ -100,7 +100,23 @@ int LinkedList::removeAtIndex(int index)
     }
     
 }
-
+void LinkedList::NodeInsertionSort()
+{
+    Node* theFollower = this->head;
+    Node* countNode = new Node(count);
+    for(Node* currStart = this->head; currStart < countNode; currStart->getNextNode())
+    {
+        while(theFollower->getNextNode() < currStart)
+        {
+            theFollower = theFollower->getNextNode();
+        }
+        while(theFollower > 0 && currStart < theFollower)
+        {
+            theFollower->getNextNode(currStart->getNextNode());
+            currStart->getNextNode(theFollower);
+        }
+    }
+}
 void LinkedList::addFront(int value)
 {
     if(this->head)
