@@ -100,25 +100,6 @@ int LinkedList::removeAtIndex(int index)
     }
     
 }
-/*
-void LinkedList::NodeInsertionSort()
-{
-    Node* theFollower = this->head;
-    Node* tempSwap = new Node();
-    for(Node* currStart = this->head; currStart < countNode; currStart->getNextNode())
-    {
-        while(theFollower->getNextNode() < currStart)
-        {
-            theFollower = theFollower->getNextNode();
-        }
-        while(theFollower > 0 && currStart < theFollower)
-        {
-            theFollower->setNextNode(currStart->getNextNode());
-            currStart->setNextNode(theFollower);
-        }
-    }s
-}
-*/
 void LinkedList::NodeInsertionSort()
 {
     //Node* theFollower = this->head;
